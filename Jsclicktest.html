@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrap{
+            margin: 20px auto;
+            width: 800px;
+            height: 600px;
+            position: relative;
+            /* background: cyan; */
+        }
+        #box1 {
+            width: 100%;
+            height: 200px;
+            background: orangered;
+            line-height: 200px;
+            font-size: 1.7em;
+            color: white;
+            text-align: center;
+        }
+        #box2 {
+            width: 100%;
+            height: 200px;
+            background: darkblue;
+            line-height: 200px;
+            font-size: 1.7em;
+            color: white;
+            text-align: center;
+            display: none;
+        }
+        #box3 {
+            width: 100%;
+            height: 200px;
+            background: darkorange;
+            line-height: 200px;
+            font-size: 1.7em;
+            color: white;
+            text-align: center;
+            display: none;
+        }
+        .wrap button {
+            position: absolute;
+            top: 14%;
+            /* background: whitesmoke; */
+            border-radius: 5px;
+            border: 0 none;
+            font-size: 1.5em;
+            
+        }
+        #prev {
+            left: 7%;
+        }
+        #next {
+            right: 7%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+        <div class="wrap">    
+            <button id="prev">&laquo;</button>
+            <button id="next">&raquo;</button>
+            <div id="box1">One</div>
+            <div id="box2">Two</div>
+            <div id="box3">Three</div>
+        </div>
+
+
+        <script>
+            var box = 1;
+
+            document.querySelector("#next").onclick = next;
+            document.querySelector("#prev").onclick = prev;
+            
+            function next() {
+                document.querySelector("#box" + box).style.display = "none";
+                box++; if (box > 3) {
+                    box = 1;
+                }
+                document.querySelector("#box" + box).style.display = "block";
+            }
+
+            function prev() {
+                document.querySelector("#box" + box).style.display = "none";
+                box--; if (box < 1) {
+                    box = 3;
+                }
+                document.querySelector("#box" + box).style.display = "block";
+            }
+        </script>
+
+</body>
+</html>
